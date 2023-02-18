@@ -22,7 +22,7 @@ const AddQuotes: NextPage = () => {
   return (
     <>
       <NextSeo
-        title="Add Quote - Technoblade.love"
+        title="Add Quote | Void Craft"
         description="Add a quote in the memory of Technoblade"
       />
       <Container>
