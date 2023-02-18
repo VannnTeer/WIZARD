@@ -1,0 +1,169 @@
+<html>
+
+<!-- NOTICE: Copyright (c) 28/7/16, IslandMC -->
+<!-- All rights reserved. -->
+<!-- Reproduction, Downloading and/or saving of this site is strictly prohibited  -->
+<!-- And is regularly monitored. This website is licensed under the Proprietary License  -->
+
+<head>
+    <title>IslandMC | Portal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/loading.js"></script>
+    <link href="css/custom-portal-1.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+</head>
+
+<body style="background:url('images/bg.png'); background-repeat: no-repeat; background-size: 100% 100%;" >
+
+
+<div class="se-pre-con">
+
+</div>
+
+<!-- Players online. Change the IP to check down at the bottom! -->
+<div class="container">
+    <div class="pull-left col-lg-2 ip">
+    <p id="copy" data-clipboard-text="islandmc.com">IslandMC.com</p>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div id="players-online" class="online fade">
+        <h4>
+            <center>Come join <span id="players-number" style="color: red;">0</span> other players on <span style="color: yellowgreen">IslandMC</span>
+                now!
+            </center>
+        </h4>
+    </div>
+</div>
+
+<!-- Floating logo -->
+
+<div class="container floating">
+    <img src="images/logo.png" alt="Logo">
+</div>
+
+<!-- Links to the external websites -->
+
+<center>
+<div class="container links">
+
+    <!-- Store -->
+    <div class="col-lg-3 hvr-pulse-grow">
+        <a href="http://www.google.com" style="color: black">
+        <figure>
+        <img src="images/store.png">
+            <figcaption><div class="linksbox"><h4 class="no-underline">STORE</h4></div></figcaption>
+        </figure>
+            </a>
+    </div>
+
+    <!-- Forums -->
+    <div class="col-lg-3 hvr-pulse-grow">
+        <a href="http://www.google.com" style="color: black">
+        <figure>
+        <img src="images/forums.png">
+            <figcaption><div class="linksbox"><h4 class="no-underline">FORUMS</h4></div></figcaption>
+        </figure>
+            </a>
+    </div>
+
+    <!-- Staff List -->
+    <div class="col-lg-3 hvr-pulse-grow">
+        <a href="http://www.google.com" style="color: black">
+        <figure>
+        <img src="images/staff.png">
+            <figcaption><div class="linksbox"><h4 class="no-underline">STAFF</h4></div></figcaption>
+        </figure>
+        </a>
+    </div>
+
+    <!-- Appeals -->
+    <div class="col-lg-3 hvr-pulse-grow">
+        <a href="http://www.google.com" style="color: black">
+        <figure>
+        <img src="images/appeals.png">
+            <figcaption><div class="linksbox"><h4 class="no-underline">APPEALS</h4></div></figcaption>
+        </figure>
+        </a>
+    </div>
+
+</div>
+</center>
+
+
+<!-- Script to check how many players are online. Change the IP inside /query/<IP>/players -->
+<script>
+    $.getJSON('https://mcapi.ca/query/islandmc.com/players', function (status) {
+        if (status.status == true) {
+            $('#players-number').html(status.players.online);
+        } else {
+            $('#players-online p').html('0000');
+        }
+    });
+</script>
+
+<script>
+    function render (){
+        $.getJSON('https://mcapi.ca/query/islandmc.com/players', function (status) {
+            if (status.status == true) {
+                $('#players-number').html(status.players.online);
+            } else {
+                $('#players-online p').html('0000');
+            }
+        });
+    }
+    window.setInterval(render, 10);
+</script>
+
+<script src="js/clipboard.js"></script>
+
+
+<script>
+    $(document).ready(function(){
+        $("#copy").mouseover(function(){
+            $("#copy").html("Click to copy!");
+        });
+        $("#copy").mouseleave(function(){
+            $("#copy").html("IslandMC.com");
+        });
+        $( "#copy" ).click(function() {
+            $("#copy").html("IP Copied!");
+        });
+    });
+</script>
+
+
+<script>
+    var clipboard = new Clipboard("#copy");
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+
+
+</body>
+
+<footer>
+    <div class="container copyright">
+        <br/>
+        <br/>
+        <h6 style="color: white">Portal Design by <a href="http://www.google.com" style="color: white;"><b>Potters</b></a> - Icons by CraftillDawn</h6>
+    </div>
+</footer>
+
+</html>
