@@ -9,8 +9,8 @@ const Home: NextPage = () => {
   return (
     <>
       <NextSeo
-        title="Technoblade.love"
-        description="A place where Technoblade always will remain. RIP"
+        title="Void Craft | Quotes"
+        description="Minecraft Server"
       />
       <Container>
         <LandingFragment />
